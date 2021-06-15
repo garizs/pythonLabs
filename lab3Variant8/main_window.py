@@ -48,7 +48,7 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Колесников Иван ПРИ-18/1"))
         self.pushButton.setText(_translate("MainWindow", "Распознавание по изображению"))
-        self.pushButton_2.setText(_translate("MainWindow", "Распознавание в реальнои времени"))
+        self.pushButton_2.setText(_translate("MainWindow", "Распознавание в реальном времени"))
         self.pushButton.clicked.connect(self.pushButton_handler)
         self.pushButton_2.clicked.connect(self.pushButton2_handler)
 
