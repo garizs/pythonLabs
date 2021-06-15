@@ -48,20 +48,22 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Колесников Иван ПРИ-18/1"))
         self.pushButton.setText(_translate("MainWindow", "Распознавание по изображению"))
-        self.pushButton_2.setText(_translate("MainWindow", "Распознавание по вебкамере"))
+        self.pushButton_2.setText(_translate("MainWindow", "Распознавание в реальнои времени"))
         self.pushButton.clicked.connect(self.pushButton_handler)
         self.pushButton_2.clicked.connect(self.pushButton2_handler)
 
     def pushButton_handler(self):
-        print("Button pressed")
+        logging.info("Button 'Распознавание по изображению' pressed")
         self.fileBrowse()
 
     def pushButton2_handler(self):
+        logging.info("Button 'Распознавание в реальнои времени' pressed")
         self.findCamera()
 
     @staticmethod
     def fileBrowse():
         cv2.destroyAllWindows()
+        logging.info('csv windows destroyed')
         file_path = QtWidgets.QFileDialog.getOpenFileName()
         extension = os.path.splitext(file_path[0])[1]
         if file_path[0] and extension in ['.jpg', '.png']:
@@ -72,4 +74,5 @@ class Ui_MainWindow(object):
     @staticmethod
     def findCamera():
         cv2.destroyAllWindows()
+        logging.info('csv windows destroyed')
         FindRectangle.video_find_rectangle()
