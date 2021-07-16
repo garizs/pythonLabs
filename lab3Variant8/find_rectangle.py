@@ -28,9 +28,7 @@ class FindRectangle:
                 cv2.drawContours(image, [approx], -1, (0, 255, 0), 4)
                 total += 1
         cv2.imshow("Image", image)
-        logging.info('csv window opened')
         cv2.imwrite('result_by_open.jpg', image)
-        logging.info('picture saved')
         cv2.waitKey()
 
     @staticmethod
@@ -86,7 +84,6 @@ class FindRectangle:
                     x, y, w, h = cv2.boundingRect(approx)
                     cv2.rectangle(img_cont, (x, y), (x + w, y + h), (0, 255, 0), 5)
                     cv2.imwrite("result_by_real_time.jpg", img_cont)
-                    logging.info('picture saved')
 
         cap = cv2.VideoCapture(0)
         if cap:
@@ -122,12 +119,10 @@ class FindRectangle:
                 img_stack = stackImages(0.8, ([img, img_gray, img_blur],
                                               [img_canny, img_contour, img_blank]))
                 cv2.imshow("Stack", img_stack)
-                logging.info('csv window opened')
                 k = cv2.waitKey(33)
                 if k == 27:  # Esc key to stop
                     break
             cap.release()
             cv2.destroyAllWindows()
-            logging.info('csv windows destroyed')
         else:
             logging.error('Камера не найдена!')

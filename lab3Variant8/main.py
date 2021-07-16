@@ -1,4 +1,3 @@
-import logging
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
@@ -14,7 +13,6 @@ class Window(QMainWindow):
 
 
 def main():
-    logging.getLogger().setLevel(logging.INFO)
     app = QApplication(sys.argv)
     win = Window()
     win.show()
